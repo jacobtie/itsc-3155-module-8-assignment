@@ -18,7 +18,9 @@ def list_all_movies():
     for movie in movie_repository_singleton.get_all_movies():
         # map the corresponding title to its rating
         movie_ratings[movie.title] = movie.rating
-    return render_template('list_all_movies.html', movie_ratings, list_movies_active=True)
+    # make list_movies_active be equal to the movie_ratings dictionary.
+    # This will make it so list_all_movies.html will present the movie_ratings dictionary as the list_movies_active
+    return render_template('list_all_movies.html', list_movies_active=movie_ratings)
 
 
 @app.get('/movies/new')

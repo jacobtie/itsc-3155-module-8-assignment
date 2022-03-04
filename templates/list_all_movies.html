@@ -6,9 +6,25 @@
 <h1 class="mb-5">All Movies</h1>
 <p class="mb-3">See our list of movie ratings below</p>
 <!-- TODO: Feature 1 -->
-<ul>
-    {%for title, rating in movie_ratings.items() %}
-    <li>{{ title }} ------ {{ rating }}</li>
+<!-- Set the class equal to table to get the nice table look.
+ Link:https://getbootstrap.com/docs/4.0/content/tables/ -->
+<table class = "table">
+    <th>
+        Movie Name
+    </th>
+    <th>
+        Rating
+    </th>
+    {% for title, rating in list_movies_active.items() %}
+    <tr> 
+        <td>
+            {{ title }}
+        </td>
+        <td>
+            {{ rating }}
+        </td>
+    </tr>
+
     {% endfor %}
-</ul>
+</table>
 {% endblock %}
