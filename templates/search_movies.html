@@ -4,18 +4,23 @@
 
 {% block body %}
 <h1 class="mb-5">Search Movie Ratings</h1>
-<p class="mb-3">Search for a movie rating below</p>
-<!-- TODO: Feature 3 -->
+<p class=" p-3">Search for a movie rating below</p>
 
-<form>
-  <div class="mb-3">
-
-    <div class="mb-3">
-      <label for="search-title" class="form-label">Movie Title:</label>
-      <input type="text" class="form-control" id="search-title" name="search-title"
-        placeholder="example: The Princess Bride" autocomplete="off">
+<!--Begin Form-->
+<form action="movies/search" method="get" class="row row-cols-lg-auto g-3 align-items-center">
+    <div class="col-12">
+        <label class="visually-hidden" for="search_input">Movie Titile</label>
+        <div class="input-group">
+            <div class="input-group-text">Movie Title:</div>
+            <input type="text" class="form-control" id="search_input" autocomplete="off">
+        </div>
     </div>
-
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="col-12">
+        <a href ="/movies/search" <button type="submit" value="Submit" class="btn btn-primary name" name="search_active" id="search_active">Search</button></a>
+    </div>
 </form>
+
+
+<!--End Form-->
+
 {% endblock %}
