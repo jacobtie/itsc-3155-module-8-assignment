@@ -1,9 +1,106 @@
+<!-- Links below used for help creating star rating system: -->
+<!-- https://gist.github.com/prof3ssorSt3v3/29e623d441e8174ffaef17741a1bba14 -->
+
 {% extends '_layout.html' %}
 
 {% block title %}Movie Rating App | Create Movie Rating{% endblock %}
 
 {% block body %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <h1 class="mb-5">Create Movie Rating</h1>
 <p class="mb-3">Create a movie rating below</p>
 <!-- TODO: Feature 2 -->
+<div style="margin-left: 20px; margin-top: 30px;">
+    <form action="/movielist" method="get">
+        <div>
+            <label for="movie">Enter a movie title:</label><br>
+            <input type="text" name="title" id="title" autocomplete="off" size="180px"><br>
+        </div>
+
+        <div style="margin-top: 30px;">
+            <label for="director">Enter the director:</label><br>
+            <input type="text" name="director" id="director" autocomplete="off" size="180px"><br>
+        </div>
+
+        <div data-rating="0" style="margin-top: 30px;">
+            <label for="rating">User rating:</label><br>
+            <span class="star">&nbsp;</span>
+            <span class="star">&nbsp;</span>
+            <span class="star">&nbsp;</span>
+            <span class="star">&nbsp;</span>
+            <span class="star">&nbsp;</span>
+        </div>
+
+        <button type="submit"
+            style="margin-top: 30px; background-color: green; color: white; border-radius: 8px; padding: 6px">
+            Submit Review
+        </button>
+    </form>
+</div>
+
+<style>
+    .star {
+        color: goldenrod;
+        font-size: 2.0rem;
+        padding: 0 1rem;
+        /* code to space out the stars */
+    }
+
+    .star::before {
+        content: '\2606';
+        /* star outline */
+        cursor: pointer;
+    }
+
+    .star.rated::before {
+        /* the style for a selected star */
+        content: '\2605';
+    }
+
+    .star.rated {
+        counter-increment: rateme 1;
+    }
+
+    .stars::after {
+        content: counter(rateme) '/5';
+    }
+</style>
+
+<script>  
+    //listens to see if the stars are clicked or not
+    document.addEventListener('DOMContentLoaded', function(){
+        let stars = document.querySelectorAll('.star');
+        stars.forEach(function(star){
+            star.addEventListener('click', setRating); 
+        });
+        
+        let rating = parseInt(document.querySelector('.stars').getAttribute('data-rating'));
+        let target = stars[rating - 1];
+        target.dispatchEvent(new MouseEvent('click'));
+    });
+
+    function setRating(ev){
+        let span = ev.currentTarget;
+        let stars = document.querySelectorAll('.star');
+        let match = false;
+        let num = 0;
+        stars.forEach(function(star, index){
+            if(match){
+                star.classList.remove('rated');
+            }else{
+                star.classList.add('rated');
+            }
+            //are we currently looking at the span that was clicked
+            if(star === span){
+                match = true;
+                num = index + 1;
+            }
+            rating = num;
+        });
+        document.querySelector('.stars').setAttribute('data-rating', num);
+    }
+    
+</script>
 {% endblock %}
