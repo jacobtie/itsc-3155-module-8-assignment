@@ -1,8 +1,8 @@
-from flask import Flask, redirect, render_template
+from flask import Flask, redirect, render_template, request
 from src.repositories.movie_repository import movie_repository_singleton
 
 app = Flask(__name__)
-
+movies = {}
 
 @app.get('/')
 def index():
@@ -22,8 +22,14 @@ def create_movies_form():
 
 @app.post('/movies')
 def create_movie():
-    # TODO: Feature 2
-    # After creating the movie in the database, we redirect to the list all movies page
+    #Feature 2 - done by Ryan Braswell
+    movie = request.form.get('movie')
+    director = request.form.get('director') #gets data from the webpage
+    rating = request.form.get('rating')
+
+    movies[movie] = [director, rating] #stores the data in a dictionary, name is they key while director's name and rating are values
+
+    #After creating the movie in the database, we redirect to the list all movies page
     return redirect('/movies')
 
 
