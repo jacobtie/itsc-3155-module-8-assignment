@@ -11,6 +11,10 @@ def index():
 
 @app.get('/movies')
 def list_all_movies():
+    print ('hello world')
+    # testing 123 testing
+    #sadfkljlasdjflkajsdfklajsdlkfjasdf
+
     # TODO: Feature 1
     return render_template('list_all_movies.html', list_movies_active=True)
 
