@@ -1,27 +1,12 @@
+#https://www.youtube.com/watch?v=sL_PWBOABWo 
+#https://codethechange.stanford.edu/guides/guide_flask_unit_testing.html
 # TODO: Feature 1
-from app import list_all_movies #from app.py import the function list_all_movies
-from src.repositories.movie_repository import MovieRepository
+# import os, sys, json
+# sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__),'..')))
+
+from app import app
 
 def test_list_all_movies():
-    MovieRepository.create_movie('Voices of a Distant Star', 'Shinkai', 5)
-    MovieRepository.create_movie('Memories', 'Otmomo', 4)
-    MovieRepository.create_movie('Matrix', 'Wachowski', 5)
-
-    movie_list = []
-    movie_list = list_all_movies()
-    counter = 0
-    movie_directory = {}
-    for movies in movie_list:
-        movie_directory[movie_list.title] = movie_list.rating
+    response = app.test_client().get('/movies') #gets the /movies page and stores to response
     
-    for key in movie_directory.keys():
-        movie_list[counter] = key
-        counter += 1
-
-    # movie1 = Movie('Voices of a Distant Star', 'Shinkai', 5)
-    # movie2 = Movie('Memories', 'Otmomo', 4)
-    # movie3 = Movie('Matrix', 'Wachowski', 5)
-    # movies = [movie1, movie2, movie3]
-    # movie_directory = {}
-    # for movie in movies:
-    #     movie_directory[movie.title] = movie.rating
+    assert response._status_code == 200 #checks if the reuqest above is successful
