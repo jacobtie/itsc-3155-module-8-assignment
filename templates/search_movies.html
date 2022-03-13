@@ -12,15 +12,13 @@
         <label class="visually-hidden" for="search_input">Movie Titile</label>
         <div class="input-group">
             <div class="input-group-text">Movie Title:</div>
-            <input type="text" class="form-control" id="search_input" autocomplete="off">
+            <input type="text" class="form-control" id="search_input" name="search_input" autocomplete="off">
         </div>
     </div>
     <div class="col-12">
-        <a href ="/movies/search" <button type="submit" value="Submit" class="btn btn-primary name" name="search_active" id="search_active">Search</button></a>
+        <a href ="/movies/results" <button type="submit" value="Submit" class="btn btn-primary name">Search</button></a>
     </div>
 </form>
-
-
 <!--End Form-->
 
 {% endblock %}

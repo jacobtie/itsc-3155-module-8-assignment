@@ -1,9 +1,10 @@
-from flask import Flask, redirect, render_template, request
+from flask import Flask, redirect, render_template, request, abort
 from src.repositories.movie_repository import movie_repository_singleton
 
 app = Flask(__name__)
 
-returned_search = []
+returned_search = []  # empty list to store the searched repository movie
+
 
 @app.get('/')
 def index():
@@ -30,9 +31,20 @@ def create_movie():
 
 @app.get('/movies/search')
 def search_movies():
-    search_input = request.args.get('search_input')
-    returned_search.clear() #clears any previous searches from list variable
-    searched_movie = movie_repository_singleton.get_movie_by_title(str(search_input))
-    returned_search.append(searched_movie)
+    return render_template('search_movies.html', search_active=True)
 
-    return render_template('search_movies.html', search_input=search_input, returned_search=returned_search, search_active=True)
+@app.get('/movies/results')
+def searched_movies():
+    search_input = request.args.get('search_input', 'ERROR 400: No query parameter entered')
+    searched_movie = movie_repository_singleton.get_movie_by_title(search_input)
+    returned_search.clear()
+
+    try:
+        # stores the movie in the empty list
+        returned_search.append(searched_movie)
+    except:
+        breakpoint
+
+    return render_template('search_results.html', search_input=search_input, searched_movie=searched_movie, returned_search=returned_search)
+
+
