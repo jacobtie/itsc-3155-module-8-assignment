@@ -24,6 +24,7 @@ def create_movies_form():
 
 @app.post('/movies')
 def create_movie():
+    # TEstTEstTESTESsET
     # TODO: Feature 2
     # After creating the movie in the database, we redirect to the list all movies page
     
