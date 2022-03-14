@@ -1,9 +1,11 @@
 from flask import Flask, redirect, render_template, request, abort
 from src.repositories.movie_repository import movie_repository_singleton
+# from src.models.movie import Movie
 
 app = Flask(__name__)
 
-returned_search = []  # empty list to store the searched repository movie
+#result = [[]] #empty list in a list to store movie (not working)
+
 
 
 @app.get('/')
@@ -24,27 +26,29 @@ def create_movies_form():
 
 @app.post('/movies')
 def create_movie():
-    # TODO: Feature 2
-    # After creating the movie in the database, we redirect to the list all movies page
+
     return redirect('/movies')
 
-
-@app.get('/movies/search')
+@app.get('/movies/search') #Route to the Search Movies form
 def search_movies():
-    return render_template('search_movies.html', search_active=True)
-
-@app.get('/movies/results')
-def searched_movies():
-    search_input = request.args.get('search_input', 'ERROR 400: No query parameter entered')
-    searched_movie = movie_repository_singleton.get_movie_by_title(search_input)
-    returned_search.clear()
-
-    try:
-        # stores the movie in the empty list
-        returned_search.append(searched_movie)
-    except:
-        breakpoint
-
-    return render_template('search_results.html', search_input=search_input, searched_movie=searched_movie, returned_search=returned_search)
+    #clear previous searches
+    # result.pop[:]
+    return render_template('search_movies.html')
 
 
+@app.get('/result') #route to search resule
+def result():
+    input_movie = request.args.get('input_movie', 'Error: No Parameter')
+    movie_repository_singleton.get_movie_by_title(input_movie) #returns a movie object
+    # result.append(searched_movie) #add movie to empty result movie
+
+    #variables for title and rating
+    title = input_movie.title()
+    #rating = input_movie.rating() #keep getting a typecast error, and cannot figure out how to fix
+    
+    return render_template('result.html', title=title, input_movie=input_movie)
+    
+    #rating=rating) #commented out b/c not working due to typecast error
+
+#References for Implement #3: 
+# https://www.geeksforgeeks.org/different-ways-to-clear-a-list-in-python/

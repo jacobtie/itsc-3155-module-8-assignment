@@ -5,7 +5,7 @@ class MovieRepository:
 
     def __init__(self) -> None:
         # In memory database which is a simple list of movies
-        self._db: list[Movie] = [ Movie("abc", "123", 5), Movie("def", "456", 4)]
+        self._db: list[Movie] = []
 
     def get_all_movies(self) -> list[Movie]:
         # Simply return all movies from the in-memory database

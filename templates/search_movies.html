@@ -7,16 +7,16 @@
 <p class=" p-3">Search for a movie rating below</p>
 
 <!--Begin Form-->
-<form action="movies/search" method="get" class="row row-cols-lg-auto g-3 align-items-center">
+<form action="/result" method="get" class="row row-cols-lg-auto g-3 align-items-center">
     <div class="col-12">
-        <label class="visually-hidden" for="search_input">Movie Titile</label>
+        <label for="movie" class="visually-hidden">Movie Titile</label>
         <div class="input-group">
             <div class="input-group-text">Movie Title:</div>
-            <input type="text" class="form-control" id="search_input" name="search_input" autocomplete="off">
+            <input type="text" class="form-control" id="movie" name="movie" autocomplete="off">
         </div>
     </div>
     <div class="col-12">
-        <a href ="/movies/results" <button type="submit" value="Submit" class="btn btn-primary name">Search</button></a>
+        <button type="submit" value="Submit" class="btn btn-primary name">Search</button>
     </div>
 </form>
 <!--End Form-->
