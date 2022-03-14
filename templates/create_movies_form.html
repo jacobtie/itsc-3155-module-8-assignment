@@ -5,5 +5,41 @@
 {% block body %}
 <h1 class="mb-5">Create Movie Rating</h1>
 <p class="mb-3">Create a movie rating below</p>
-<!-- TODO: Feature 2 -->
+
+<form action="/movies" method="POST">
+    <div class="form-group">
+        <label class="fw-bold" for="title">Movie Name:</label>
+        <input type="text" class="form-control" id="title" placeholder="Enter movie name" name="title">
+    </div>
+    <div class="form-group">
+        <label class="fw-bold" for="director">Director:</label>
+        <input type="text" class="form-control" id="director" placeholder="Enter director name" name="director" >
+    </div>
+    <div class="form-group">
+        <label class="fw-bold" for="rating">Rating:</label>
+        <br>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="rating1" name="rating" value="1" >
+            <label class="form-check-label" for="rating1">1</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="rating2" name="rating" value="2">
+            <label class="form-check-label" for="rating2">2</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="rating3" name="rating" value="3">
+            <label class="form-check-label" for="rating3">3</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="rating4" name="rating" value="4">
+            <label class="form-check-label" for="rating4">4</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="rating5" name="rating" value="5">
+            <label class="form-check-label" for="rating5">5</label>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 {% endblock %}
