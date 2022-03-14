@@ -11,6 +11,7 @@ def index():
 
 @app.get('/movies')
 def list_all_movies():
+    movie_repository_singleton.get_all_movies()
     
     # TODO: Feature 1
     return render_template('list_all_movies.html', list_movies_active=True)
@@ -30,8 +31,8 @@ def create_movie():
     director = request.form.get('director_name')
     rating = request.form.get('rating')
 
-    movie = create_movie(title, director, rating)
-    
+    movie_repository_singleton.create_movie(title, director, rating)
+
     return redirect('/movies')
 
 
