@@ -4,21 +4,49 @@
 
 {% block body %}
 <h1 class="mb-5">Search Movie Ratings</h1>
-<p class=" p-3">Search for a movie rating below</p>
+<p class="mb-5">Search for a movie rating below</p>
+
 
 <!--Begin Form-->
-<form action="/result" method="get" class="row row-cols-lg-auto g-3 align-items-center">
-    <div class="col-12">
-        <label for="movie" class="visually-hidden">Movie Titile</label>
-        <div class="input-group">
-            <div class="input-group-text">Movie Title:</div>
-            <input type="text" class="form-control" id="movie" name="movie" autocomplete="off">
+<div class="mb-5">
+    <form action="/movies/search" method="get" class="row row-cols-lg-auto g-3 align-items-center">
+        <div class="col-12">
+            <label for="movie" class="visually-hidden">Movie Titile</label>
+            <div class="input-group">
+                <div class="input-group-text">Movie Title:</div>
+                <input type="text" class="form-control" id="input_movie" name="input_movie" autocomplete="off">
+            </div>
         </div>
-    </div>
-    <div class="col-12">
-        <button type="submit" value="Submit" class="btn btn-primary name">Search</button>
-    </div>
-</form>
+        <div class="col-12">
+            <button type="submit" value="Submit" class="btn btn-primary name">Search</button>
+        </div>
+    </form>
+</div>
+
 <!--End Form-->
+
+{% if search_movie %}
+
+<div class="mt-5">
+
+    <div class="card text-center">
+        <div class="card-header">Your Result</div>
+
+        <div class="card-body">
+
+            <p> {{ search_movie.title }} directed by {{ search_movie.director }} has a {{ search_movie.rating }} star
+                rating.</p>
+            {% endif %}
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
 
 {% endblock %}
