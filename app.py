@@ -11,8 +11,16 @@ def index():
 
 @app.get('/movies')
 def list_all_movies():
-    # TODO: Feature 1
-    return render_template('list_all_movies.html', list_movies_active=True)
+    # TODO: Feature 1 (Can Ngo)
+    # Create a dictionary mapping the movie title to the movie's rating
+    movie_ratings = dict()
+    # loop through all movies we have right now
+    for movie in movie_repository_singleton.get_all_movies():
+        # map the corresponding title to its rating
+        movie_ratings[movie.title] = movie.rating
+    # make list_movies_active be equal to the movie_ratings dictionary.
+    # This will make it so list_all_movies.html will present the movie_ratings dictionary as the list_movies_active
+    return render_template('list_all_movies.html', list_movies_active=movie_ratings)
 
 
 @app.get('/movies/new')
