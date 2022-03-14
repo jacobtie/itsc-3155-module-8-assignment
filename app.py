@@ -3,8 +3,6 @@ from src.repositories.movie_repository import movie_repository_singleton
 
 app = Flask(__name__)
 
-title_rating = {}
-title_director = {}
 
 @app.get('/')
 def index():
@@ -31,10 +29,9 @@ def create_movie():
     title = request.form.get('movie_name')
     director = request.form.get('director_name')
     rating = request.form.get('rating')
-    
-    title_rating[title] = rating
-    title_director[title] = director
 
+    movie = create_movie(title, director, rating)
+    
     return redirect('/movies')
 
 
