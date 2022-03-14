@@ -6,11 +6,26 @@
 <h1 class="mb-5">Search Movie Ratings</h1>
 <p class="mb-3">Search for a movie rating below</p>
 <!-- TODO: Feature 3 -->
-<form action="/movies/search" method="post">
+<form action="/movies/search" method="get">
     <div class="form-group">
-    <label for="movie">Movie</label>
-    <input type="text" class="form-control" id="movie" name="movie" placeholder="Movie Name">
+    <label for="movie_name">Movie</label>
+    <input type="text" class="form-control" id="movie_name" name="movie_name" placeholder="Movie Name">
     </div>
     <button type="submit" class="btn btn-primary my-1">Submit</button>
 </form>
+<br>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Movie Name</th>
+        <th scope="col">Rating</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>{{title}}</td>
+        <td>{{rating}}</td>
+    </tr>
+    </tbody>
+</table>
 {% endblock %}
