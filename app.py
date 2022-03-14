@@ -23,15 +23,15 @@ def create_movies_form():
 @app.post('/movies')
 def create_movie():
     #Feature 2 - done by Ryan Braswell
-    movie = request.form.get('movie')
+    name = request.form.get('movie')
     director = request.form.get('director') #gets data from the webpage
     rating = request.form.get('rating')
 
-    movies[movie] = [director, rating] #stores the data in a dictionary, name is they key while director's name and rating are values
+    NewMovie = movie_repository_singleton.create_movie(name, director, rating) #creats movie object
 
     #After creating the movie in the database, we redirect to the list all movies page
     return redirect('/movies')
-
+ 
 
 @app.get('/movies/search')
 def search_movies():
