@@ -13,6 +13,6 @@ def test_list_all_movies():
     movie.create_movie('The Matrix', 'Wachowski', 5)
     assert len(movie.get_all_movies()) == 1
     assert movie.get_movie_by_title('The Matrix').title == "The Matrix"
-    movie.create_movie('Memories', 'Otmomo', 5)
+    movie.create_movie('Voices of a Distant Star', 'Shinkai', 5)
     assert len(movie.get_all_movies()) == 2 
-    assert movie.get_all_movies().index(movie.get_movie_by_title('Memories')) == 1
+    assert movie.get_all_movies().index(movie.get_movie_by_title('Voices of a Distant Star')) == 1
