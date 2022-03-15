@@ -1,5 +1,3 @@
-from msilib.schema import Directory
-from turtle import title
 from flask import Flask, redirect, render_template, request
 from src.repositories.movie_repository import movie_repository_singleton
 
