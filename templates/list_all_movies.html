@@ -11,24 +11,16 @@
 <table class="table">
     <thead>
       <tr>
-        <th scope="col">Movie</th>
-        <th scope="col">Director</th>
-        <th scope="col">Rating</th>
+        <th scope="col">Moive Ratings</th>
       </tr>
     </thead>
     <tbody>
-        <!--Testing the grabbing of movies and putting it into a variable then displaying it-->
-        {% for i in movies %}
-          <tr>
-            <td>{{ i }}</td>
-          </tr>
-        {% endfor %}
-
         <!--Testing attributes-->
-        {% for z in attribute %}
+        {% for z in movies %}
           <tr>
-            <td>{{ z }}</td>
-            <td>HELLO</td>
+            <td> {{ z.title }} </td>
+            <td> {{ z.director }} </td>
+            <td> {{ z.rating }} </td>
           </tr>
         {% endfor %}
     </tbody>
