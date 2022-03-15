@@ -17,15 +17,18 @@
       </tr>
     </thead>
     <tbody>
-        {% for i in titles %}
+        <!--Testing the grabbing of movies and putting it into a variable then displaying it-->
+        {% for i in movies %}
           <tr>
             <td>{{ i }}</td>
           </tr>
         {% endfor %}
 
-        {% for x in listss %}
+        <!--Testing attributes-->
+        {% for z in attribute %}
           <tr>
-            <td>{{ x }}</td>
+            <td>{{ z }}</td>
+            <td>HELLO</td>
           </tr>
         {% endfor %}
     </tbody>
