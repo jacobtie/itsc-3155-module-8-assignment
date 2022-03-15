@@ -27,4 +27,4 @@ def test_search_page(test_app: FlaskClient):
     response = test_app.get('/movies/search', query_string={"input_movie": "not a movie"})
     response_data = response.data
 
-    assert b'<p> Not Found`</p>' in response_data
+    assert b'<p> That title is not in our database.</p>' in response_data
