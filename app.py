@@ -3,7 +3,6 @@ from src.repositories.movie_repository import movie_repository_singleton
 
 app = Flask(__name__)
 
-
 @app.get('/')
 def index():
     return render_template('index.html')
@@ -11,21 +10,30 @@ def index():
 
 @app.get('/movies')
 def list_all_movies():
-    movie_repository_singleton.get_all_movies()
-    
-    # TODO: Feature 1
-    return render_template('list_all_movies.html', list_movies_active=True)
+    # Start Feature 1
+
+    titleList = []
+    ratingList = []
+    directorList = []
+
+    for i in movie_repository_singleton.get_all_movies():
+        titleList.append(i.title)
+        directorList.append(i.director)
+        ratingList.append(i.rating)
+
+    return render_template('list_all_movies.html', titles = titleList, list_movies_active=True)
+
+    # End Feature 1
 
 
 @app.get('/movies/new')
 def create_movies_form():
-    return render_template('create_movies_form.html', create_rating_active=True)
+    return render_template('create_movies_form.html', listss = list, create_rating_active=True)
 
 
 @app.post('/movies')
 def create_movie():
-    # TEstTEstTESTESsET
-    # TODO: Feature 2
+    # Start Feature 2
     # After creating the movie in the database, we redirect to the list all movies page
     
     title = request.form.get('movie_name')
@@ -36,8 +44,14 @@ def create_movie():
 
     return redirect('/movies')
 
+    # End Feature 2
+
 
 @app.get('/movies/search')
 def search_movies():
     # TODO: Feature 3
     return render_template('search_movies.html', search_active=True)
+
+
+if __name__ == '__main__':
+    app.run()
