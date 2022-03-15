@@ -21,14 +21,18 @@ def list_all_movies():
         directorList.append(i.director)
         ratingList.append(i.rating)
 
-    return render_template('list_all_movies.html', titles = titleList, list_movies_active=True)
+
+
+    list = movie_repository_singleton.get_all_movies()
+
+    return render_template('list_all_movies.html', movies = list, attribute = directorList, list_movies_active=True)
 
     # End Feature 1
 
 
 @app.get('/movies/new')
 def create_movies_form():
-    return render_template('create_movies_form.html', listss = list, create_rating_active=True)
+    return render_template('create_movies_form.html', create_rating_active=True)
 
 
 @app.post('/movies')
