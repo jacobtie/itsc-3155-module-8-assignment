@@ -33,7 +33,10 @@ def search_movies():
     # TODO: Feature 3
     title = request.args.get('title')
     output_value = movie_repository_singleton.get_movie_by_title(title)
-    is_empty = True
-    if title is None:
-        is_empty = False
-    return render_template('search_movies.html', is_empty=is_empty, output_value=output_value, title=title, search_active=True)
+    is_empty = False
+    is_not_found = False
+    if title is None or title=='':
+        is_empty = True
+    if output_value is None:
+        is_not_found = True
+    return render_template('search_movies.html', is_not_found=is_not_found, is_empty=is_empty, output_value=output_value, title=title, search_active=True)

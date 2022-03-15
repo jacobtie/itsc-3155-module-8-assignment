@@ -10,9 +10,13 @@
 <form action="/movies/search" method=get>
     <input type="text" class="form-control" placeholder="Enter a movie" name="title" id="title">
     <button type="submit" class="btn btn-primary mt-2">Submit</button>
-    {% if not is_empty %}
+    {% if not is_empty and not is_not_found %}
     <p class="mb-3">Text Entered: {{ title }}</p>
     <p class="mb-3">Search Result: {{ output_value.title }} directed by {{ output_value.director }} has a rating of {{ output_value.rating }}</p>
+    {% elif is_empty %}
+    <p class="mb-3"></p>
+    {% elif is_not_found %}
+    <p class="mb-3">Movie not found</p>
     {% endif %}
 </form>
 
