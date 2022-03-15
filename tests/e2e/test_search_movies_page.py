@@ -1,5 +1,6 @@
 from flask.testing import FlaskClient
 # TODO: Feature 3
+
 def test_search_movie_page(test_app: FlaskClient):
 
     response = test_app.get('/movies/search')
