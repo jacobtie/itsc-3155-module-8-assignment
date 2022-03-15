@@ -11,10 +11,10 @@ def test_get_all_movies():
     repo.create_movie("Cats", "Tom Hooper", 1)
 
     #Test
-    assert repo.get_movie_by_title("Batman").title == "Batman"
+    assert repo.get_movie_by_title("Batman").director == "Caden"
     assert repo.get_movie_by_title("Superman").title == "Superman"
-    assert repo.get_movie_by_title('Hulk').title == "Hulk"
-    assert repo.get_movie_by_title('Star Wars').title == "Star Wars"
+    assert repo.get_movie_by_title('Hulk').rating == 3
+    assert repo.get_movie_by_title('Star Wars').director == "George Lucas"
     assert repo.get_movie_by_title('Cats').title == "Cats"
 
     #create variables for test
