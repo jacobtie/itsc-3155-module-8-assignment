@@ -17,17 +17,17 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        {% for i in movieList %}
+        {% for i in titles %}
           <tr>
             <td>{{ i }}</td>
-            <td>{{ movieList[i] }}</td>
           </tr>
         {% endfor %}
-        <td>Perry</td>
-        <td>Miles</td>
-        <td>5</td>
-      </tr>
+
+        {% for x in listss %}
+          <tr>
+            <td>{{ x }}</td>
+          </tr>
+        {% endfor %}
     </tbody>
   </table>
 
