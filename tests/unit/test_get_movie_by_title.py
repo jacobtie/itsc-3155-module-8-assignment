@@ -13,13 +13,7 @@ def test_get_all_movies():
     repo.create_movie("Star Wars", "George Lucas", 5)
     repo.create_movie("Cats", "Tom Hooper", 1)
 
-    # title01 = "Batman"
-    # title02 = "Superman"
-    # title03 = "Hulk"
-    # title04 = "Star Wars"
-    # title05 = "Cats"
-
-
+  
 
 
 
@@ -29,12 +23,29 @@ def test_get_all_movies():
     assert repo.get_movie_by_title('Star Wars').title == "Star Wars"
     assert repo.get_movie_by_title('Cats').title == "Cats"
 
-    try: 
-        repo.get_movie_by_title("Batman")
-        repo.get_movie_by_title("Superman")
-        repo.get_movie_by_title("Hulk")
-        repo.get_movie_by_title("Star Wars")
-        repo.get_movie_by_title("Cats")
+
+
+    movie01 = repo.get_movie_by_title("Batman")
+    movie02 = repo.get_movie_by_title("Superman")
+    movie03 = repo.get_movie_by_title("Hulk")
+    movie04 = repo.get_movie_by_title("Star Wars")
+    movie05 = repo.get_movie_by_title("Cats")     
+
+    if movie01 == None:
         assert False
-    except:
+    else: 
+        assert True
+
+    
+    if movie01 == None:
+        assert False
+    elif movie02 == None:
+        assert False
+    elif movie03 == None:
+        assert False
+    elif movie04 == None:
+        assert False
+    elif movie05 == None: 
+        assert False
+    else: 
         assert True
