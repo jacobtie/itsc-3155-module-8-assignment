@@ -12,7 +12,6 @@ def index():
 
 @app.get('/movies')
 def list_all_movies():
-    # TODO: Feature 1
     movies = movie_repository_singleton.get_all_movies()
     return render_template('list_all_movies.html', list_movies_active=True, movies = movies)
 
