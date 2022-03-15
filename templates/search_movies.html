@@ -25,28 +25,38 @@
 
 <!--End Form-->
 
-{% if search_movie %}
+{% if search_movie and search_movie != 'Error: No Parameter' %}
 
 <div class="mt-5">
-    <div class="card text-center">
-        <div class="card-header">Your Result</div>
+    <div class="card text-center border border-3 border-dark ">
+        <div class="card-header text-white bg-dark rounded">Your Result</div>
+        <div class="card-body mt-5">
+            <p> {{ search_movie.title }} directed by {{ search_movie.director }} has a {{ search_movie.rating }} star
+                rating.</p>
+        </div>
         <div class="card-body">
-            <p> {{ search_movie.title }} directed by {{ search_movie.director }} has a {{ search_movie.rating }} star rating.</p>
+            <a href="/movies/search" class="btn btn-primary">Search Again</a>
         </div>
     </div>
 </div>
 
-{% else %}
+{% elif not search_movie %}
 
 <div class="mt-5">
-    <div class="card text-center">
-        <div class="card-header">Your Result</div>
+    <div class="card text-center border border-3 border-dark ">
+        <div class="card-header text-white bg-dark rounded">Your Result</div>
+        <div class="card-body mt-5">
+            <p> That title is not in our database.</p>
+            <p> Be the first to add the rating or search again</p>
+        </div>
         <div class="card-body">
-            <p> Not Found`</p>
+            <a href="/movies/new" class="btn btn-primary">Create Rating</a>
+            <a href="/movies/search" class="btn btn-primary">Search Again</a>
         </div>
     </div>
-</div>
 
-{% endif %}
+    {% else %}
 
-{% endblock %}
+    {% endif %}
+
+    {% endblock %}

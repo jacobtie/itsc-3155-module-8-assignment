@@ -24,16 +24,7 @@ def create_movies_form():
 
 @app.post('/movies')
 def create_movie():
-    title = request.form.get("title", "")
-    director = request.form.get("director", "")
-    rating = request.form.get("rating", "")
 
-    if (
-        "" in (title, director, rating) or
-        not (rating.isdecimal() and 1 <= int(rating) <= 5)
-    ):
-        abort(400)
-    movie_repository_singleton.create_movie(title, director, int(rating))
 
     return redirect('/movies')
 
@@ -41,5 +32,9 @@ def create_movie():
 @app.get('/movies/search')  # Route to the Search Movies form
 def search_movies():
     input_movie = request.args.get('input_movie', 'Error: No Parameter')
-    search_movie = movie_repository_singleton.get_movie_by_title(input_movie)
+    if input_movie == 'Error: No Parameter':
+        search_movie = 'Error: No Parameter'
+    else:
+        search_movie = movie_repository_singleton.get_movie_by_title(
+            input_movie)
     return render_template('search_movies.html', input_movie=input_movie, search_movie=search_movie, search_active=True)

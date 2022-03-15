@@ -4,20 +4,5 @@
 
 {% block body %}
 <h1 class="mb-5">Create Movie Rating</h1>
-<form action="/movies" method="post">
-  <label for="title" class="form-label mb-2">Title</label>
-  <input type="text" class="form-control mb-3" name="title" id="title" />
-  <label for="director" class="form-label mb-2">Director</label>
-  <input type="text" class="form-control mb-3" name="director" id="director" />
-  <label for="rating" class="form-label mb-2">Rating</label>
-  <select class="form-control mb-3" name="rating" id="rating">
-    <option>Select rating</option>
-    <option value="5">&#9733 &#9733 &#9733 &#9733 &#9733</option>
-    <option value="4">&#9733 &#9733 &#9733 &#9733</option>
-    <option value="3">&#9733 &#9733 &#9733</option>
-    <option value="2">&#9733 &#9733</option>
-    <option value="1">&#9733</option>
-  </select>
-  <button type="submit" class="btn btn-primary mb-3">Submit</button>
-</form>
+
 {% endblock %}
