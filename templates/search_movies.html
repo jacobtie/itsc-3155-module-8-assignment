@@ -14,10 +14,27 @@
     </div>
 </form>
 
-<p class="lead">
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Movie Title</th>
+        <th scope="col">Movie Director</th>
+        <th scope="col">Movie Ratings</th>
+      </tr>
+    </thead>
+    <tbody>
+        <!--Testing attributes-->
+        
+            {% for i in found_movie  %}
+                <tr>
+                    <td> {{ i.title }} </td>
+                    <td> {{ i.director }} </td>
+                    <td> {{ i.rating }} </td>
+                </tr>
+            {% endfor %}
+    </tbody>
+  </table>
 
-    {{ found_movie }}
-</p>
 
 <!-- TODO: Feature 3 -->
 {% endblock %}

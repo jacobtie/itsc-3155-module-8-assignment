@@ -48,8 +48,11 @@ def search_movies():
 
     found_movie = movie_repository_singleton.get_movie_by_title(movie)
 
-  
-    return render_template('search_movies.html', found_movie=found_movie, search_active=True)
+    if (found_movie != None):
+        return render_template('search_movies.html', found_movie=found_movie, search_active=True)
+    return render_template('search_movies.html', search_active=True)
+
+
 
 
 if __name__ == '__main__':
