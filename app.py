@@ -2,9 +2,6 @@ from flask import Flask, redirect, render_template, request
 from src.repositories.movie_repository import movie_repository_singleton
 
 app = Flask(__name__)
-title = ""
-director = ""
-rating = 0
 
 @app.get('/')
 def index():
@@ -15,14 +12,9 @@ def index():
 def list_all_movies():
     # Start Feature 1
 
-    titleList = []
-    ratingList = []
-    directorList = []
+    movieList = movie_repository_singleton.get_all_movies()
 
-    for i in movie_repository_singleton.get_all_movies():
-        ratingList.append(i.rating)
-
-    return render_template('list_all_movies.html', ratings = rating, list_movies_active=True)
+    return render_template('list_all_movies.html', movies = list, list_movies_active=True)
 
     # End Feature 1
 
