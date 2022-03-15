@@ -3,7 +3,62 @@
 {% block title %}Movie Rating App | All Movies{% endblock %}
 
 {% block body %}
+<style>
+    .all-movie-table {
+    margin: 50px 0;
+    min-width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+    border-collapse: collapse;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+    }
+
+    .all-movie-table th {
+    background-color: rgb(161, 248, 248);
+    color: white;
+    text-align: left;
+    font-weight: bolder;
+    padding-left: 10px;
+    
+    }
+
+    .all-movie-table td, .all-movie-table tr {
+        padding: 20px, 20px;
+        padding-left: 10px
+    }
+
+    .all-movie-table tbody tr {
+    border-bottom: 1px solid lightgray;
+    background-color: whitesmoke;
+    padding-left: 10px
+    }
+
+    .all-movie-table tbody tr:last-of-type {
+    border-bottom: 3px rgb(161, 248, 248);
+    }
+
+</style>
+
 <h1 class="mb-5">All Movies</h1>
 <p class="mb-3">See our list of movie ratings below</p>
-<!-- TODO: Feature 1 -->
+
+<table class ="all-movie-table">
+    <tr>
+        <th> Title </th>
+        <th> Director </th>
+        <th> Rating </th>
+    </tr>
+
+
+{% for movie in your_list %}
+<tr>
+    <td>{{ movie.title }}</td>
+    <td>{{ movie.director }}</td>
+    <td>{{ movie.rating }}</td>
+{% endfor %}
+</tr>
+</table>
+
 {% endblock %}
+
