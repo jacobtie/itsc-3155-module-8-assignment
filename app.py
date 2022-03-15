@@ -52,11 +52,12 @@ def submit():
 @app.get('/movies/search')
 def search_movies():
     # TODO: Feature 3
-    movie_search = request.form.get('movie_search')
+    movie = request.form.get('movie_search')
 
-    found_movie = movie_repository_singleton.get_movie_by_title(movie_search)
+    found_movie = movie_repository_singleton.get_movie_by_title(movie)
+
   
-    return render_template('search_movies.html',found_movie=found_movie, search_active=True)
+    return render_template('search_movies.html', found_movie=found_movie, search_active=True)
 
 
 if __name__ == '__main__':
