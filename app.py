@@ -1,8 +1,9 @@
-from flask import Flask, redirect, render_template
+from flask import Flask, redirect, render_template, request
 from src.repositories.movie_repository import movie_repository_singleton
 
 app = Flask(__name__)
 
+movies = {}
 
 @app.get('/')
 def index():
@@ -30,4 +31,9 @@ def create_movie():
 @app.get('/movies/search')
 def search_movies():
     # TODO: Feature 3
-    return render_template('search_movies.html', search_active=True)
+    title = request.args.get('title')
+    output_value = movie_repository_singleton.get_movie_by_title(title)
+    is_empty = True
+    if title is None:
+        is_empty = False
+    return render_template('search_movies.html', is_empty=is_empty, output_value=output_value, title=title, search_active=True)
