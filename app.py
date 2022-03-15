@@ -2,7 +2,7 @@ from flask import Flask, redirect, render_template, request
 from src.repositories.movie_repository import movie_repository_singleton
 
 app = Flask(__name__)
-
+list = {}
 
 @app.get('/')
 def index():
@@ -13,8 +13,12 @@ def index():
 def list_all_movies():
     movie_repository_singleton.get_all_movies()
     
-    # TODO: Feature 1
-    return render_template('list_all_movies.html', list_movies_active=True)
+    #Start Feature 1
+
+    list = movie_repository_singleton.get_all_movies()
+    return render_template('list_all_movies.html', movieList = list, list_movies_active=True)
+
+    #End Feature 1
 
 
 @app.get('/movies/new')
