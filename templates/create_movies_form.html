@@ -5,7 +5,7 @@
 {% block body %}
 <h1 class="mb-5">Create Movie Rating</h1>
 <p class="mb-3">Create a movie rating below</p>
-<form action="/movies">
+<form action="/movies" method="post">
     <div class="form-row">
       <div class="col">
         <input type="text" class="form-control" name="movie_name" id="movie_name" placeholder="Movie Name">
@@ -22,9 +22,9 @@
             <option>2</option>
             <option>1</option>
         </select>
-        <div>
-            <input type="submit" value="submit">
-        </div>
+      </div>
+      <div class="col">
+          <input class="btn btn-primary" type="submit" value="Create">
       </div>
     </div>
   </form>
