@@ -4,6 +4,31 @@
 
 {% block body %}
 <h1 class="mb-5">All Movies</h1>
-<p class="mb-3">See our list of movie ratings below</p>
+<p class="mb-3">See our list of movie ratings below
 <!-- TODO: Feature 1 -->
+<div class="container">
+    <div class="row">
+      <div class="col">
+        <!-- left -->
+        <table class="table">
+          <thead class='thead-light'>
+            <tr>
+              <th scope='col'>Title</th>
+              <th scope='col'>Director</th>
+              <th scope='col'>Rating</th>
+            </tr>
+            </thead>
+          <tbody>
+            {% for value in repo %}
+              <td>{{ value.title }}</td>
+              <td>{{ value.director }}</td>
+              <td>{{ value.rating }}</td>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!--End of row 1 ^-->
+  </div>
+</p>
 {% endblock %}
