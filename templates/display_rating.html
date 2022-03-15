@@ -1,0 +1,22 @@
+{% extends '_layout.html' %}
+
+{% block title %}Movie Rating App | Display Movie Ratings{% endblock %}
+
+{% block body %}
+<h1 class="mb-5">Movie Ratings</h1>
+<table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">Movie Name</th>
+        <th scope="col">Rating</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>{{title}}</td>
+        <td>{{rating}}</td>
+    </tr>
+    </tbody>
+</table>
+
+{% endblock %}
