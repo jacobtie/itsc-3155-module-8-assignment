@@ -7,3 +7,4 @@ def test_search():
     assert movie.title == "Movie"
     assert movie.director == "Person"
     assert movie.rating == 3
+    
