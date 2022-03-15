@@ -14,7 +14,7 @@ def list_all_movies():
 
     movieList = movie_repository_singleton.get_all_movies()
 
-    return render_template('list_all_movies.html', movies = list, list_movies_active=True)
+    return render_template('list_all_movies.html', movieList = movieList, list_movies_active=True)
 
     # End Feature 1
 
