@@ -5,5 +5,31 @@
 {% block body %}
 <h1 class="mb-5">All Movies</h1>
 <p class="mb-3">See our list of movie ratings below</p>
-<!-- TODO: Feature 1 -->
+<!--Start of Part 1-->
+<!--Creating the table for users to see the movies-->
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Movie</th>
+        <th scope="col">Director</th>
+        <th scope="col">Rating</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        {% for i in movieList %}
+          <tr>
+            <td>{{ i }}</td>
+            <td>{{ movieList[i] }}</td>
+          </tr>
+        {% endfor %}
+        <td>Perry</td>
+        <td>Miles</td>
+        <td>5</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!--End of Part 1-->
 {% endblock %}
