@@ -28,20 +28,26 @@
 {% if search_movie %}
 
 <div class="mt-5">
-
     <div class="card text-center">
         <div class="card-header">Your Result</div>
-
         <div class="card-body">
-
             <p> {{ search_movie.title }} directed by {{ search_movie.director }} has a {{ search_movie.rating }} star
                 rating.</p>
-            {% endif %}
-
         </div>
-
     </div>
 </div>
 
+{% else %}
+
+<div class="mt-5">
+    <div class="card text-center">
+        <div class="card-header">Your Result</div>
+        <div class="card-body">
+            <p> Not Found</p>
+        </div>
+    </div>
+</div>
+
+{% endif %}
 
 {% endblock %}
