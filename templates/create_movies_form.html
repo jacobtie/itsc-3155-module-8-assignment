@@ -6,4 +6,25 @@
 <h1 class="mb-5">Create Movie Rating</h1>
 <p class="mb-3">Create a movie rating below</p>
 <!-- TODO: Feature 2 -->
+<!-- https://www.w3schools.com/tags/att_input_type_radio.asp-->
+<!-- help with radio- Jordan Smiley-->
+<form action = "/movies" method = "post">
+    <p>Title</p>
+    <input type = "text" name = "title" id="title">
+    <p>Director</p>
+    <input type = "text" name = "director" id="director">
+    <p>Rating</p>
+    <input type = "radio" name = "rating" id="1" value = "1">
+    <label for="1">1</label> <br>
+    <input type = "radio" name = "rating" id="2" value = "2">
+    <label for="2">2</label> <br>
+    <input type = "radio" name = "rating" id="3" value = "3">
+    <label for="3">3</label> <br>
+    <input type = "radio" name = "rating" id="4" value = "4">
+    <label for="4">4</label> <br>
+    <input type = "radio" name = "rating" id="5" value = "5">
+    <label for="5">5</label> <br>
+    <br>
+    <input type = "submit" value = "Submit" class = "btn btn-primary">
+</form>
 {% endblock %}
