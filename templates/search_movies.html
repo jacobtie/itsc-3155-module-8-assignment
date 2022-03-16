@@ -4,6 +4,16 @@
 
 {% block body %}
 <h1 class="mb-5">Search Movie Ratings</h1>
-<p class="mb-3">Search for a movie rating below</p>
+<p class="mb-3">Search for a movie rating below, they are going to be  fun.</p>
 <!-- TODO: Feature 3 -->
+<form class="mb-3" method="get" action="" 
+        >
+            <input type="text" placeholder="Search your movie name." name="movie">
+            <button type="submit"><i>Submit</i>
+            </button>
+    </form>
+
+<p class="mb-3">{{data}}</p>
+
+
 {% endblock %}

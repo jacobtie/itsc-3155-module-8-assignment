@@ -1,4 +1,4 @@
-from flask import Flask, redirect, render_template
+from flask import Flask, redirect, render_template, request
 from src.repositories.movie_repository import movie_repository_singleton
 
 app = Flask(__name__)
@@ -12,6 +12,7 @@ def index():
 @app.get('/movies')
 def list_all_movies():
     # TODO: Feature 1
+    
     return render_template('list_all_movies.html', list_movies_active=True)
 
 
@@ -27,7 +28,15 @@ def create_movie():
     return redirect('/movies')
 
 
-@app.get('/movies/search')
+@app.route('/movies/search')
 def search_movies():
     # TODO: Feature 3
-    return render_template('search_movies.html', search_active=True)
+    movie = request.args.get('movie')
+    # movie_repository_singleton.create_movie("Fire","Hans","5")
+    movie = movie_repository_singleton.get_movie_by_title(movie)
+    if movie == None:
+        return render_template('search_movies.html', search_active=True, data = "Movie not found")
+    else:
+        return render_template('search_movies.html', search_active=True, data = "The rating of " +  movie.title + " is " + movie.rating)
+        
+    
