@@ -5,5 +5,25 @@
 {% block body %}
 <h1 class="mb-5">All Movies</h1>
 <p class="mb-3">See our list of movie ratings below</p>
-<!-- TODO: Feature 1 -->
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Rating</th>
+        <th scope="col">Movie Name</th>
+        <th scope="col">Director</th>
+      </tr>
+    </thead>
+    {% for name names %}
+        <tbody>
+            <tr>
+            <th scope="row">movies_ratings[name]</th>
+            <td colspan="2">name</td>
+            <td>movies_directors[name]</td>
+            </tr>
+        </tbody>
+    {% endfor %}
+  </table>
+
 {% endblock %}

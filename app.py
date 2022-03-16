@@ -3,16 +3,34 @@ from src.repositories.movie_repository import movie_repository_singleton
 
 app = Flask(__name__)
 movies = {}
+names = []
+movies_directors = {}
+movies_ratings = {} 
 
 @app.get('/')
 def index():
     return render_template('index.html')
 
 
-@app.get('/movies')
+@app.post('/movies')
 def list_all_movies():
+    # feature 1 location found 
     # TODO: Feature 1
-    return render_template('list_all_movies.html', list_movies_active=True)
+
+    # obtain form data
+    name = request.form.get('movie')
+    director = request.form.get('director') 
+    rating = request.form.get('rating')
+
+    # store data in appropriate container
+    names.append(name)
+    movies_directors[name] = director 
+    movies_ratings[name] = rating
+
+    # render page
+    return render_template('list_all_movies.html', movies_directors = movies_directors, movies_ratings = movies_ratings, names = names, list_movies_active=True)
+    
+
 
 
 @app.get('/movies/new')
