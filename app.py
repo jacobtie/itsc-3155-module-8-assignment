@@ -1,4 +1,4 @@
-from flask import Flask, redirect, render_template
+from flask import Flask, redirect, render_template, request
 from src.repositories.movie_repository import movie_repository_singleton
 
 app = Flask(__name__)
@@ -22,8 +22,10 @@ def create_movies_form():
 
 @app.post('/movies')
 def create_movie():
-    # TODO: Feature 2
-    # After creating the movie in the database, we redirect to the list all movies page
+    moviename=request.form['name']
+    director=request.form['director']
+    rating=request.form['rating']
+    movie_repository_singleton.create_movie(moviename, director, rating)
     return redirect('/movies')
 
 

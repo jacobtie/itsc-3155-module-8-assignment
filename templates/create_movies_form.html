@@ -5,5 +5,24 @@
 {% block body %}
 <h1 class="mb-5">Create Movie Rating</h1>
 <p class="mb-3">Create a movie rating below</p>
-<!-- TODO: Feature 2 -->
+
+<form action="/movies/new" method="post">
+    <h4>Movie Name:</h4>
+    <input type="text" name="name" id="name"><br>
+    <h4>Director Name:</h4>
+    <input type="text" name="director" id="director">
+    <h4>Rating:</h4>
+    <input type="radio" id="1" name="rating" value="1">
+    <label for="1">1</label><br>
+    <input type="radio" id="2" name="rating" value="2">
+    <label for="2">2</label><br>
+    <input type="radio" id="3" name="rating" value="3">
+    <label for="3">3</label><br>
+    <input type="radio" id="4" name="rating" value="4">
+    <label for="4">4</label><br>
+    <input type="radio" id="5" name="rating" value="5">
+    <label for="5">5</label><br>
+    <br>
+    <input type="submit" value="Submit">"
+</form>
 {% endblock %}
