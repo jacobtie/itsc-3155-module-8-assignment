@@ -5,5 +5,23 @@
 {% block body %}
 <h1 class="mb-5">Create Movie Rating</h1>
 <p class="mb-3">Create a movie rating below</p>
-<!-- TODO: Feature 2 -->
+<!-- featuer 2  by Nick koehler-->
+<!-- The plan is to create a form to enter the data and create a data type that will be able to show the movies raiting -->
+
+<!-- Looks like the data type is alredy made wich would have been the main hassle I think-->
+<!-- El form -->
+<!-- 
+    action: /movies
+    method: post
+    feilds: title, name, rating
+-->
+<form action="/movies" method="post">
+    <label>Enter Movie title</label>  <br>
+    <input type="text" id="title" name="title"> <br><br>
+    <label>Enter Director name</label>  <br>
+    <input type="text" id="name" name="name"> <br><br>
+    <label>Enter rating</label>  <br>
+    <input type="text" id="rating" name="rating"> <br><br>
+    <input type="submit">
+</form>
 {% endblock %}
