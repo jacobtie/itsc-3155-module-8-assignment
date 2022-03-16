@@ -1,0 +1,14 @@
+{% extends '_layout.html' %}
+
+{% block title %}Movie Rating App | Search Movie Ratings{% endblock %}
+
+{% block body %}
+<h1 class="mb-5">Search Movie Ratings</h1>
+<p class="mb-3">Search for a movie rating below</p>
+<form action="http://127.0.0.1:5000/movies/search/Batman" method = "post">
+    <label for="mname">Movie Name:</label>
+    <input type="text" id="mname" name="mname"><br><br>
+    <input type="submit" value="Submit">
+    </form> 
+<!-- TODO: Feature 3 -->
+{% endblock %}
