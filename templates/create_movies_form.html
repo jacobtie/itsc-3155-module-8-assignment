@@ -5,5 +5,26 @@
 {% block body %}
 <h1 class="mb-5">Create Movie Rating</h1>
 <p class="mb-3">Create a movie rating below</p>
-<!-- TODO: Feature 2 -->
+<form action="/movies" method="post">
+    <div class="form-group mt-2">
+        <label for="movieTitle">Movie</label>
+        <input type="text" class="form-control" name="movieTitle" id="movieTitle" placeholder="Shawshank Titration" autocomplete="off" required>
+    </div>
+    <div class="form-group mt-2">
+        <label for="movieDirector">Director</label>
+        <input type="text" class="form-control" name="movieDirector" id="movieDirector" placeholder="Ridley Scott" autocomplete="off" required>
+    </div>
+    <div class="form-group mt-2">
+        <label for="movieRating">Rating</label>
+        <select class="form-select" name="movieRating" id="movieRating" required>
+            <option value="">Select</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+</form>
 {% endblock %}
