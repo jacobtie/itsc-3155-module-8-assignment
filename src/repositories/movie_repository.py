@@ -11,7 +11,7 @@ class MovieRepository:
         # Simply return all movies from the in-memory database
         return self._db
 
-    def get_movie_by_title(self, title: str) -> Movie | None:
+    def get_movie_by_title(self, title: str) -> Movie or None:
         # Perform a linear search through the in-memory database
         for movie in self._db:
             # If the movie title matches, return the movie
