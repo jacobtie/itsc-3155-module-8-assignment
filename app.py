@@ -1,4 +1,3 @@
-from urllib import request
 from flask import Flask, redirect, render_template, request
 from src.repositories.movie_repository import movie_repository_singleton
 
